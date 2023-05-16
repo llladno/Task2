@@ -10,6 +10,10 @@
   grid-template-rows: repeat(auto-fit, minmax(160px, 160px));
 }
 
+option{
+  color:black
+}
+
 .header{
   height: 50px;
   background: #acacac;

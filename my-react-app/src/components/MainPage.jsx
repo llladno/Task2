@@ -3,8 +3,9 @@ import Titles from "./Titles";
 import { useEffect, useState } from "react";
 
 function MainPage() {
-    let inputvalue = document.getElementsByClassName("inputvalue")[0]
+    // let inputvalue = document.getElementsByClassName("inputvalue")[0]
     const [header, setHeader] = useState()
+    const [randomCards, setRandomCards] = useState(100)
     const [loading, setLoading] = useState(false)
     useEffect(()=>{
         async function getHeader (){
@@ -19,19 +20,24 @@ function MainPage() {
     function changeFn(event){
     
     }
+    // function sendNumber(){
+    //     let selectionedValue = document.getElementById("selectionedValue")
+    //     let rand = selectionedValue.value
+    //     let sendData
+    //     if(rand.includes("Radndom")) setRandomCards(100)
+    //     else if(rand.includes("20")) setRandomCards(20)
+    //     else if(rand.includes("30")) setRandomCards(30)
+    //     else if(rand.includes("40")) setRandomCards(40)
+    //     return <Titles data={randomCards}></Titles>
+    // }
+    // console.log(randomCards)
 
-
-    function sendNumber(){
-        console.log(input)
-    }
-
-
-    inputvalue.oninput  = ()=>{
-        let reg = /[0-9]/
-        this.value =this.value.replace(reg, "")
-        // onkeypress={e => changeFn(e.target.value)}
-    }
-    console.log(inputvalue)
+    // inputvalue.oninput  = ()=>{
+    //     let reg = /[0-9]/
+    //     this.value =this.value.replace(reg, "")
+    //     // onkeypress={e => changeFn(e.target.value)}
+    // }
+    // console.log(inputvalue)
 
     return (
         <div>
@@ -42,11 +48,18 @@ function MainPage() {
             </div>
             <div className="stylecenter">
                 <div className="leftside">
-                    <input type="text" style={{color:"#000"}} className="inputvalue" ></input>
-                    <button onClick={sendNumber}>Send</button>
+                    {/* <select id="selectionedValue">
+                        <option>Radndom</option>
+                        <oprion>До 10</oprion>
+                        <option>до 20</option>
+                        <option>до 30</option>
+                        <option>до 40</option>
+                    </select> */}
+                    {/* <input type="text" style={{color:"#000"}} className="inputvalue" ></input> */}
+                    {/* <button onClick={sendNumber}>Send</button> */}
                 </div>
                 <div className="container">
-                    <Titles></Titles>
+                 <Titles></Titles>
                 </div>
                 <div className="rightSide">
                 </div>

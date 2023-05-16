@@ -16,10 +16,10 @@ app.listen(PORT, () => {
     console.log(`Server has been started on port: ${PORT}`)
 })
 
-function getRandomWords() {
+function getRandomWords(sendRandom) {
     let words = []
     let allwords = []
-    const randomCards = Math.floor(Math.random() * (6 - 1) + 1)
+    const randomCards = Math.floor(Math.random() * (sendRandom - 10) + 1)
     for (let c = 0; c < randomCards; c++) {
         words = []
         const randomlength = Math.ceil(Math.random() * (10 - 1))
@@ -34,7 +34,7 @@ function getRandomWords() {
 
 
 app.get("/getrandom", (req, res) => {
-    const data = getRandomWords()
+    const data = getRandomWords(60)
     res.send(data)
 })
 
@@ -43,6 +43,13 @@ app.get("/getheader", (req,res)=>{
     const randomHeader = Math.ceil(Math.random() * (5 - 1))
     const header = dataWords.headers[randomHeader]
     res.send(header)
+})
+
+app.post("/postrandom",(req,res)=>{
+    const sendValue = req.body.data
+    const data = getRandomWords(sendValue)
+    console.log(sendValue)
+    res.send(data)
 })
 
 
