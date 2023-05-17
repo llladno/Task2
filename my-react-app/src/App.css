@@ -10,6 +10,10 @@
   grid-template-rows: repeat(auto-fit, minmax(160px, 160px));
 }
 
+#selectionedValue{
+  color: black;
+}
+
 option{
   color:black
 }
@@ -64,7 +68,35 @@ option{
   overflow: hidden;
 }
 
+
+select{
+  margin-top: 20px;
+  width: 80%;
+  font-size: 18px;
+  height: 35px;
+}
+
+
+button{
+  margin-top: 20px;
+  width: 80%;
+  height: 30px;
+  font-size: 20px;
+  color: #000;
+  background: #dadada;
+  border: none;
+  border-radius: 8px;
+}
+
+
+button:hover{
+  background: #cecece;
+  box-shadow: 1px 2px 4px #dadada;
+}
+
 h1{
+  height: 100%;
+  margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;

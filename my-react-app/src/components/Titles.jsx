@@ -3,33 +3,27 @@ import { useEffect, useState } from "react";
 import Card from "./Card";
 
 
-function Titles() {
+function Titles(props) {
+    let data = []
+    const [loading, setLoading] = useState(true)
 
-    const [dataCards, setData] = useState()
-    const [loading, setLoading] = useState(false)
-    const [dataCard, setData2] = useState(true)
         useEffect(()=>{
-        // axios.post("http://localhost:3005/postrandom",{
-        //     data:sendData
-        // }).then(res => setData(res.data)).then(setData2(false))
-            async function getData (){
-                const result = await axios.get('http://localhost:3005/getrandom')
-                setData(result.data)
-                console.log(result.data)
-                setLoading(true)
-            }
-            getData()
-        
-        //     setData(props.data)
-        // }
+            props.data2()//Вызов функции, которая отправляет данные на сервер
+            data = props.data
+            setTimeout(()=>{ //Небольшая задержка
+                setLoading(false)
+            },50)
     },[])
+
+        data = props.data
+        if(data === undefined) window.location.reload()// В случае ошибки перезагружается страница
 
     return (
         <div className="grid">
-            {loading ? dataCards.map((elem,y)=>(
+            {loading === false ? data.map((elem,y)=>(
                 <Card data={elem}></Card>
              ))
-            : <div>Loading</div>} 
+            : <div style={{color:"#000"}}>Loading</div>} 
         </div>
     );
   }
