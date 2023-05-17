@@ -1,4 +1,3 @@
-import axios from "axios"
 import { useEffect, useState } from "react";
 import Card from "./Card";
 
@@ -12,7 +11,7 @@ function Titles(props) {
             data = props.data
             setTimeout(()=>{ //Небольшая задержка
                 setLoading(false)
-            },50)
+            },150)
     },[])
 
         data = props.data
